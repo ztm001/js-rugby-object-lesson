@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Object Lesson</title>
+
+	<style>
+
+	</style>
+
+</head>
+<body>
+
+
+
+<script>
+	
+
+		// To write a variable remember V.N.E  - variable, name, equals
+		var obj = {
+			firstName: "Zachary",
+			lastName: "Maguire"
+		}; 
+
+		// dot notation:
+
+		obj.age = 26;
+		obj["nickname"]= "Zac";
+
+		
+
+		// Object Methods
+
+		Object.defineProperty( obj, "country", {
+				value:"newZealand"
+
+		});
+
+		console.log(obj.country);
+
+		// New method
+
+		Object.defineProperties (obj, {
+				faveFood: {value: "stir-fry"},
+				faveColor: {value: "black"}
+		});
+
+		console.log(obj.faveFood);
+
+		//allBlacks 
+
+		var abJonah = {
+				team: "AllBlacks",
+				firstName: "Jonah",
+				lastName: "Lomu",
+				sayName: function(){
+					return "My name is " + this.firstName + " " + this.lastName + ".";
+				}
+		};
+
+
+		// invoke
+		console.log (abJonah.sayName());
+
+
+		var abFitzy = Object.create(abJonah, {
+				firstName: {value: "Sean"},
+				lastName: {value: "Fitzpatrick"},
+				profession: {value: "Rugby"},
+				captiansSpeech: {
+						value: function(person){
+							return "What a game. " + this.profession + " was the winner on the day. God Bless the " + person.team + ".";
+						}
+				}
+
+
+		});
+
+		console.log(abFitzy.captiansSpeech(abJonah));
+
+
+
+	
+
+
+</script>	
+	
+</body>
+</html>
